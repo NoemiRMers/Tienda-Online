@@ -1,6 +1,6 @@
-﻿Alter authorization on database::Tienda to sa;
+﻿
 create database Tienda;
- use Tienda;
+	use Tienda;
 	create table registroCliente(
 		idRegistro int primary key,
 		username varchar(50),
@@ -8,18 +8,22 @@ create database Tienda;
 		contraseña varchar(50),
 		fechaRegistro varchar(50)
 		);
+
+
+
+
 	create table Cliente(
 		idCliente varchar(15) primary key,
-		idRegistro int,
 		username varchar(50),
 		nombre varchar(50),
 		apellido varchar(50),
-		fechaNacimiento varchar(50),
-		constraint Cliente_fk_Registro foreign key (idRegistro) references registroCliente
+		fechaNacimiento vacrhar(50)
+		username varchar(50)
+		constrain Cliente_fk_Registro foreign key (username) references registroCliente
 		);
 	create table ClienteFrecuente(
 		idClienteFrecuente varchar(15) primary key,
-		idCliente varchar(15)
+		idCliente varchar(15) primary key
 		constraint ClienteFrecuente_fk_Cliente foreign key (idCliente) references Cliente
 		);
 	create table Visitante(
@@ -134,7 +138,6 @@ create database Tienda;
 		);
 	create table Supervisor(
 		idSupervisor int primary key,
-		idEmpleado int,
 		nombre varchar(50),
 		username varchar(30),
 		contraseña varchar(50)
